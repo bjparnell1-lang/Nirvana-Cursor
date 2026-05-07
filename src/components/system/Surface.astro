@@ -1,0 +1,23 @@
+---
+type Variant = 'paper' | 'mist' | 'paperBordered' | 'clay' | 'gold';
+
+interface Props {
+  variant?: Variant;
+  class?: string;
+  as?: string;
+}
+
+const { variant = 'paper', class: cls = '', as: Tag = 'div' } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  paper: 'bg-nirvana-paper rounded-lg',
+  mist: 'bg-nirvana-mist rounded-lg shadow-elevated',
+  paperBordered: 'bg-nirvana-paper rounded-lg border border-nirvana-sage/40',
+  clay: 'bg-nirvana-clay/15 rounded-lg',
+  gold: 'bg-nirvana-paper rounded-lg border border-nirvana-goldAntique/60 shadow-floating',
+};
+---
+
+<Tag class={`${variants[variant]} ${cls}`}>
+  <slot />
+</Tag>

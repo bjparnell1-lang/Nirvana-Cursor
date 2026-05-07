@@ -6,7 +6,7 @@ lede: "Non-invasive low-level laser therapy used as part of a body contouring ap
 heroImage: "/images/services/laser-lipo-hero.jpg"
 heroImageAlt: "Treatment room with low-level laser equipment in soft, calming light."
 heroImageAspect: "1/1"
-icon: "laser-pointer"
+icon: "magic-wand"
 sections:
   - { key: "what-is" }
   - { key: "benefits" }

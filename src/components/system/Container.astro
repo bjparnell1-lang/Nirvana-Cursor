@@ -1,0 +1,21 @@
+---
+type Variant = 'default' | 'narrow' | 'wide';
+
+interface Props {
+  variant?: Variant;
+  class?: string;
+  as?: string;
+}
+
+const { variant = 'default', class: cls = '', as: Tag = 'div' } = Astro.props;
+
+const variants: Record<Variant, string> = {
+  default: 'max-w-nirvana mx-auto px-lg md:px-xl lg:px-[3rem]',
+  narrow: 'max-w-reading mx-auto px-lg md:px-xl',
+  wide: 'w-full',
+};
+---
+
+<Tag class={`${variants[variant]} ${cls}`}>
+  <slot />
+</Tag>

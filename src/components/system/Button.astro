@@ -1,0 +1,52 @@
+---
+type Variant = 'primary' | 'secondary' | 'text';
+type Size = 'md' | 'lg';
+
+interface Props {
+  variant?: Variant;
+  size?: Size;
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  class: cls = '',
+  ariaLabel,
+} = Astro.props;
+
+const base =
+  'inline-flex items-center justify-center font-medium tracking-tight rounded-md duration-240 ease-nirvana motion-safe:transition-[transform,opacity,background-color,border-color,color,box-shadow] hover:-translate-y-[2px] active:scale-[0.99] focus-visible:-translate-y-[1px]';
+
+const sizes: Record<Size, string> = {
+  md: 'text-[0.9375rem] px-lg py-sm',
+  lg: 'text-[1.0625rem] px-xl py-md',
+};
+
+const variants: Record<Variant, string> = {
+  primary:
+    'bg-nirvana-sage text-nirvana-paper hover:bg-nirvana-sageDeep shadow-elevated hover:shadow-floating',
+  secondary:
+    'bg-nirvana-paper text-nirvana-ink border border-nirvana-sage hover:bg-nirvana-mist',
+  text: 'text-nirvana-ink underline decoration-nirvana-goldAntique decoration-1 underline-offset-[6px] hover:decoration-2 hover:translate-y-0',
+};
+
+const classes = `${base} ${sizes[size]} ${variants[variant]} ${cls}`;
+---
+
+{
+  href ? (
+    <a href={href} class={classes} aria-label={ariaLabel}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} aria-label={ariaLabel}>
+      <slot />
+    </button>
+  )
+}

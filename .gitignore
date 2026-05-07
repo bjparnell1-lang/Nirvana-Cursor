@@ -33,7 +33,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # Screenshots (per Nates Claude.md workflow — temporary, not committed)
-temporary screenshots/
+temporary screenshots/*.png
+!temporary screenshots/.gitkeep
 
 # Misc
 .cache/

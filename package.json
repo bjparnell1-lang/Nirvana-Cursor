@@ -1,0 +1,26 @@
+{
+  "name": "nirvana-holistic-medicine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Premium luxury holistic medical marketing site for Nirvana Holistic Medicine, College Park, MD.",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "serve": "node serve.mjs",
+    "screenshot": "node screenshot.mjs"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/tailwind": "^5.1.5",
+    "@fontsource-variable/fraunces": "^5.1.0",
+    "@fontsource-variable/plus-jakarta-sans": "^5.1.0",
+    "@phosphor-icons/core": "^2.1.1",
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2"
+  }
+}

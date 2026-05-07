@@ -1,0 +1,91 @@
+---
+import { bookCta } from '../../data/nav';
+import MegaMenu from './MegaMenu.astro';
+---
+
+<header
+  data-nirvana-header
+  class="sticky top-0 z-40 w-full border-b border-transparent bg-nirvana-paper/0 backdrop-blur-0 transition-[background-color,border-color,backdrop-filter] duration-240 ease-nirvana data-[stuck=true]:border-nirvana-sageDeep/15 data-[stuck=true]:bg-nirvana-paper/85 data-[stuck=true]:backdrop-blur-md"
+>
+  <div class="max-w-nirvana mx-auto px-lg md:px-xl lg:px-[3rem] flex h-[80px] items-center justify-between">
+    <a href="/" class="flex items-center gap-sm" aria-label="Nirvana Holistic Medicine — home">
+      <img
+        src="/images/brand/nirvana-logo-transparent.png"
+        alt="Nirvana Holistic Medicine"
+        class="h-10 w-auto"
+        width="160"
+        height="40"
+      />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-xl" aria-label="Primary">
+      <a href="/" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">Home</a>
+      <a href="/about" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">About</a>
+      <button
+        type="button"
+        data-mega-trigger="programs"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
+      >
+        Medical Programs
+        <svg
+          aria-hidden="true"
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
+          data-mega-chevron="programs"
+        >
+          <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <button
+        type="button"
+        data-mega-trigger="services"
+        aria-haspopup="true"
+        aria-expanded="false"
+        class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
+      >
+        Services
+        <svg
+          aria-hidden="true"
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
+          data-mega-chevron="services"
+        >
+          <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <a href="/foundation" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">Foundation</a>
+    </nav>
+
+    <div class="flex items-center gap-sm md:gap-md">
+      <a
+        href={bookCta.href}
+        class="inline-flex items-center justify-center rounded-md bg-nirvana-sage text-nirvana-paper shadow-elevated motion-safe:transition-[transform,opacity,background-color,border-color,color,box-shadow] motion-safe:duration-240 motion-safe:ease-nirvana hover:-translate-y-[2px] hover:bg-nirvana-sageDeep hover:shadow-floating active:scale-[0.99] px-md py-2xs text-[0.8125rem] sm:px-lg sm:py-sm sm:text-[0.9375rem]"
+      >
+        <span class="sm:hidden">Book</span>
+        <span class="hidden sm:inline">{bookCta.label}</span>
+      </a>
+      <button
+        type="button"
+        data-drawer-trigger
+        aria-label="Open menu"
+        aria-controls="mobile-drawer"
+        aria-expanded="false"
+        class="lg:hidden inline-flex h-11 w-11 items-center justify-center rounded-md hover:bg-nirvana-mist motion-safe:transition-colors motion-safe:duration-240 motion-safe:ease-nirvana"
+      >
+        <span class="sr-only">Menu</span>
+        <span aria-hidden="true" class="relative block h-[2px] w-5 bg-nirvana-ink before:absolute before:left-0 before:-top-[6px] before:block before:h-[2px] before:w-5 before:bg-nirvana-ink before:content-[''] after:absolute after:left-0 after:top-[6px] after:block after:h-[2px] after:w-5 after:bg-nirvana-ink after:content-['']"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="relative hidden lg:block">
+    <MegaMenu variant="programs" />
+    <MegaMenu variant="services" />
+  </div>
+</header>

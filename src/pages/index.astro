@@ -1,106 +1,29 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/system/Container.astro';
-import Button from '../components/system/Button.astro';
-import Surface from '../components/system/Surface.astro';
-import Icon from '../components/system/Icon.astro';
 ---
 
-<BaseLayout title="Design System Smoke Test">
+<BaseLayout title="Nirvana Holistic Medicine">
   <Container>
-    <section class="py-3xl">
-      <p class="text-caption uppercase text-nirvana-goldAntique mb-md">DESIGN SYSTEM</p>
-      <h1 class="font-display text-display mb-lg">Nirvana primitives</h1>
+    <section class="py-5xl">
+      <p class="text-caption uppercase text-nirvana-goldAntique mb-md">PHASE 3 · NAV VALIDATION</p>
+      <h1 class="font-display text-display mb-lg">Nirvana navigation</h1>
       <p class="text-lede max-w-reading mb-2xl">
-        A throwaway page to verify Tailwind tokens, primitives, and motion. Replaced in Phase 4 with the home hero.
+        Scroll to verify the sticky header. Hover the desktop nav at <code>lg+</code> to test the mega-menus. Resize below
+        1024px to see the mobile drawer.
       </p>
+    </section>
 
-      <div class="space-y-3xl">
-        <section>
-          <h2 class="font-display text-h2 mb-lg">Buttons</h2>
-          <div class="flex flex-wrap items-center gap-md">
-            <Button variant="primary">Book Appointment</Button>
-            <Button variant="primary" size="lg">Begin Consultation</Button>
-            <Button variant="secondary">Explore Programs</Button>
-            <Button variant="text">Read more →</Button>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="font-display text-h2 mb-lg">Surface tiers</h2>
-          <div class="grid md:grid-cols-3 gap-lg">
-            <Surface variant="paper" class="p-xl">
-              <p class="text-caption uppercase text-nirvana-goldAntique mb-xs">Z=0</p>
-              <p class="font-display text-h3">Paper</p>
-              <p class="text-body-sm text-nirvana-ink/75">Page canvas surface.</p>
-            </Surface>
-            <Surface variant="mist" class="p-xl">
-              <p class="text-caption uppercase text-nirvana-goldAntique mb-xs">Z=1</p>
-              <p class="font-display text-h3">Mist</p>
-              <p class="text-body-sm text-nirvana-ink/75">Elevated cards, FAQ rows.</p>
-            </Surface>
-            <Surface variant="paperBordered" class="p-xl">
-              <p class="text-caption uppercase text-nirvana-goldAntique mb-xs">Z=2</p>
-              <p class="font-display text-h3">Paper Bordered</p>
-              <p class="text-body-sm text-nirvana-ink/75">Featured program cards.</p>
-            </Surface>
-            <Surface variant="clay" class="p-xl">
-              <p class="text-caption uppercase text-nirvana-goldAntique mb-xs">Z=2 ALT</p>
-              <p class="font-display text-h3">Clay</p>
-              <p class="text-body-sm text-nirvana-ink/75">Emotional accent surfaces.</p>
-            </Surface>
-            <Surface variant="gold" class="p-xl md:col-span-2">
-              <p class="text-caption uppercase text-nirvana-goldAntique mb-xs">Z=3</p>
-              <p class="font-display text-h3">Gold floating</p>
-              <p class="text-body-sm text-nirvana-ink/75">Booking card, end-of-page CTAs.</p>
-            </Surface>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="font-display text-h2 mb-lg">Type scale</h2>
-          <div class="space-y-md">
-            <p class="font-display text-display">Display Fraunces</p>
-            <p class="font-display text-h1">Heading 1 — root-focused care</p>
-            <p class="font-display text-h2">Heading 2 — restoring balance</p>
-            <p class="font-display text-h3">Heading 3 — whole-person assessment</p>
-            <p class="text-lede max-w-reading">
-              Lede paragraph in Plus Jakarta Sans, line-height 1.55, slightly oversized for editorial intros and pull-out
-              statements that frame a section.
-            </p>
-            <p class="text-body max-w-reading">
-              Body copy at 1rem with line-height 1.7. The quick brown fox jumps over the lazy dog. Numbers like 1, 2, 3, 4, 5
-              read evenly alongside the lowercase glyphs.
-            </p>
-            <p class="text-body-sm max-w-reading">
-              Body small at 0.9375rem with line-height 1.6 — used in card ledes and metadata.
-            </p>
-            <p class="text-caption uppercase text-nirvana-goldAntique">CAPTION · ANTIQUE GOLD · LETTER-SPACED</p>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="font-display text-h2 mb-lg">Icons</h2>
-          <div class="flex items-center gap-lg text-nirvana-sage">
-            <Icon name="leaf" size={24} ariaLabel="Leaf" />
-            <Icon name="heart" size={24} ariaLabel="Heart" />
-            <Icon name="sparkle" size={24} ariaLabel="Sparkle" />
-            <Icon name="drop" size={24} ariaLabel="Drop" />
-            <Icon name="phone" size={24} ariaLabel="Phone" />
-            <Icon name="needle" size={24} ariaLabel="Needle" />
-          </div>
-        </section>
-
-        <section class="nirvana-noise">
-          <h2 class="font-display text-h2 mb-lg">Noise filter</h2>
-          <Surface variant="clay" class="p-2xl">
-            <p class="text-body max-w-reading">
-              The clay-tinted surface beneath this paragraph carries the SVG noise overlay at 3% opacity. Barely perceptible —
-              but it kills the flat-CSS digital feel and gives the page a paper-grain quality.
-            </p>
-          </Surface>
-        </section>
-      </div>
+    <section class="space-y-lg pb-5xl">
+      {
+        Array.from({ length: 8 }).map((_, i) => (
+          <p class="text-body-lg max-w-reading">
+            Filler paragraph {i + 1}. The Aesop type discipline meets Tia/Parsley warmth meets medical seriousness — restored
+            balance, deeper patterns, whole-person assessment, contributing factors, upstream causes. The home page replaces
+            this content in Phase 4 with full brand-voice copy.
+          </p>
+        ))
+      }
     </section>
   </Container>
 </BaseLayout>

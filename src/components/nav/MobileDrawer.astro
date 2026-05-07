@@ -1,0 +1,146 @@
+---
+import { programs, services, bookCta } from '../../data/nav';
+---
+
+<div
+  id="mobile-drawer"
+  data-drawer
+  hidden
+  class="fixed inset-0 z-50 lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Site navigation"
+>
+  <div
+    data-drawer-backdrop
+    class="absolute inset-0 bg-nirvana-ink/40 opacity-0 transition-opacity duration-240 ease-nirvana data-[open=true]:opacity-100"
+  >
+  </div>
+  <aside
+    data-drawer-panel
+    class="absolute right-0 top-0 flex h-full w-[min(420px,90vw)] translate-x-full flex-col bg-nirvana-paper transition-transform duration-240 ease-nirvana data-[open=true]:translate-x-0"
+  >
+    <div class="flex h-[80px] items-center justify-between border-b border-nirvana-celadon px-lg">
+      <span class="font-display text-h3">Menu</span>
+      <button
+        type="button"
+        data-drawer-close
+        aria-label="Close menu"
+        class="inline-flex h-11 w-11 items-center justify-center rounded-md hover:bg-nirvana-mist"
+      >
+        <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" stroke-width="1.5">
+          <path
+            d="M5 5 L15 15 M15 5 L5 15"
+            fill="none"
+            stroke="currentColor"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <nav class="flex-1 space-y-md overflow-y-auto px-lg py-lg" aria-label="Mobile primary">
+      <a href="/" class="block py-sm text-body">Home</a>
+      <a href="/about" class="block py-sm text-body">About</a>
+
+      <details class="group">
+        <summary
+          class="flex cursor-pointer list-none items-center justify-between py-sm text-body"
+        >
+          <span>Medical Programs</span>
+          <svg
+            aria-hidden="true"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            class="transition-transform duration-240 ease-nirvana group-open:rotate-180"
+          >
+            <path
+              d="M2 4 L6 8 L10 4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+        <ul class="mt-xs space-y-xs pl-md">
+          {
+            programs.map((p) => (
+              <li>
+                <a href={p.href} class="flex items-center gap-md py-xs">
+                  <span class="block h-12 w-12 overflow-hidden rounded-md bg-nirvana-celadon">
+                    <img
+                      src={p.thumbnail}
+                      alt={p.thumbnailAlt}
+                      loading="lazy"
+                      class="h-full w-full object-cover mix-blend-multiply"
+                      onerror="this.style.display='none'"
+                    />
+                  </span>
+                  <span class="text-[0.9375rem]">{p.name}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+
+      <details class="group">
+        <summary
+          class="flex cursor-pointer list-none items-center justify-between py-sm text-body"
+        >
+          <span>Services</span>
+          <svg
+            aria-hidden="true"
+            width="12"
+            height="12"
+            viewBox="0 0 12 12"
+            class="transition-transform duration-240 ease-nirvana group-open:rotate-180"
+          >
+            <path
+              d="M2 4 L6 8 L10 4"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+        <ul class="mt-xs space-y-xs pl-md">
+          {
+            services.map((s) => (
+              <li>
+                <a href={s.href} class="flex items-center gap-md py-xs">
+                  <span class="block h-12 w-12 overflow-hidden rounded-md bg-nirvana-celadon">
+                    <img
+                      src={s.thumbnail}
+                      alt={s.thumbnailAlt}
+                      loading="lazy"
+                      class="h-full w-full object-cover mix-blend-multiply"
+                      onerror="this.style.display='none'"
+                    />
+                  </span>
+                  <span class="text-[0.9375rem]">{s.name}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </details>
+
+      <a href="/foundation" class="block py-sm text-body">Foundation</a>
+    </nav>
+
+    <div class="border-t border-nirvana-celadon p-lg">
+      <a
+        href={bookCta.href}
+        class="inline-flex w-full items-center justify-center rounded-md bg-nirvana-sage px-xl py-md text-[1.0625rem] text-nirvana-paper shadow-elevated motion-safe:transition-colors motion-safe:duration-240 motion-safe:ease-nirvana hover:bg-nirvana-sageDeep"
+      >
+        {bookCta.label}
+      </a>
+    </div>
+  </aside>
+</div>

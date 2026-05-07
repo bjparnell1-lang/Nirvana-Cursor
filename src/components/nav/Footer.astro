@@ -1,0 +1,94 @@
+---
+import Container from '../system/Container.astro';
+import Icon from '../system/Icon.astro';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="mt-5xl border-t border-nirvana-celadon bg-nirvana-paper pb-xl pt-3xl">
+  <Container>
+    <div class="grid grid-cols-1 gap-2xl md:grid-cols-3">
+      <div>
+        <p class="text-caption uppercase text-nirvana-goldAntique mb-md">CONTACT</p>
+        <ul class="space-y-sm text-[0.9375rem]">
+          <li class="flex items-center gap-sm">
+            <span class="text-nirvana-sageDeep"><Icon name="phone" size={20} ariaLabel="Phone" /></span>
+            <a
+              href="tel:+13017987687"
+              class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]"
+            >
+              (301) 798-7687
+            </a>
+          </li>
+          <li class="flex items-center gap-sm">
+            <span class="text-nirvana-sageDeep"><Icon name="envelope" size={20} ariaLabel="Email" /></span>
+            <a
+              href="mailto:info@nirvanahealthy.com"
+              class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]"
+            >
+              info@nirvanahealthy.com
+            </a>
+          </li>
+          <li class="flex items-start gap-sm">
+            <span class="text-nirvana-sageDeep mt-2xs"><Icon name="map-pin" size={20} ariaLabel="Address" /></span>
+            <span>6201 Greenbelt Rd<br />College Park, MD</span>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-caption uppercase text-nirvana-goldAntique mb-md">HOURS</p>
+        <ul class="space-y-2xs text-[0.9375rem]">
+          <li class="flex items-center gap-sm">
+            <span class="text-nirvana-sageDeep"><Icon name="clock" size={20} ariaLabel="Clock" /></span>
+            <span>Mon–Fri · 9:00 – 6:00</span>
+          </li>
+          <li class="pl-[28px]">Sat · By appointment</li>
+          <li class="pl-[28px]">Sun · Closed</li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-caption uppercase text-nirvana-goldAntique mb-md">QUICK LINKS</p>
+        <ul class="space-y-2xs text-[0.9375rem]">
+          <li>
+            <a href="/programs" class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]">
+              Medical Programs
+            </a>
+          </li>
+          <li>
+            <a href="/services" class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]">
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="/foundation" class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]">
+              Dr. Knights Foundation
+            </a>
+          </li>
+          <li>
+            <a href="/book-appointment" class="hover:underline decoration-nirvana-goldAntique underline-offset-[4px]">
+              Book Appointment
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="my-2xl border-0 border-t border-nirvana-goldAntique/40" />
+
+    <div class="flex flex-col gap-sm md:flex-row md:items-center md:justify-between">
+      <p class="text-caption uppercase tracking-[0.08em] text-nirvana-ink/65">
+        © {year} NIRVANA HOLISTIC MEDICINE · COLLEGE PARK, MD
+      </p>
+      <p class="text-caption uppercase tracking-[0.08em] text-nirvana-ink/65">
+        DR. SHAUNDEL KNIGHTS · INTEGRATIVE & FUNCTIONAL MEDICINE
+      </p>
+    </div>
+  </Container>
+</footer>

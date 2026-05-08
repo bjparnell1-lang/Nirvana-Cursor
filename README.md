@@ -8,13 +8,15 @@ Premium luxury holistic medical marketing site for Dr. Shaundel Knights, College
 - `npm run dev` — Astro dev server at http://localhost:3000
 - `npm run build` — production build to `dist/`
 - `node serve.mjs` — serve the production build at http://localhost:3000 (used for screenshot QA)
-- `node screenshot.mjs http://localhost:3000 <label> [viewportWidth]` — screenshot to `temporary screenshots/screenshot-N-<label>.png`
+- `node screenshot.mjs http://localhost:3000 <label> [viewportWidth] [openMenu]` — screenshot to `temporary screenshots/screenshot-N-<label>.png`
+- Optional `openMenu`: `programs` or `services` — hovers that nav trigger first, then captures the viewport (for dropdown QA; omits full-page scroll).
 
 Default viewport is 1440px wide. Pass a third argument to use a different width:
 
 ```bash
 node screenshot.mjs http://localhost:3000 home-pass-1 375
 node screenshot.mjs http://localhost:3000 home-pass-1 1024
+node screenshot.mjs http://localhost:3000 nav-dropdown-programs 1024 programs
 ```
 
 ## Source of truth
@@ -46,7 +48,7 @@ src/
 ├── layouts/        # BaseLayout (added in Phase 2)
 ├── components/
 │   ├── system/     # Button, Container, Surface, Icon (added in Phase 2)
-│   └── nav/        # Header, MegaMenu, MobileDrawer, Footer (added in Phase 3)
+│   └── nav/        # Header, Dropdown, MobileDrawer, Footer (added in Phase 3)
 ├── scripts/        # scoped client scripts (nav script added in Phase 3)
 └── pages/          # routes — currently a placeholder; full route set lands in Phases 4-12
 

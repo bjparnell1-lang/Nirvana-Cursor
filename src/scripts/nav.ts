@@ -12,10 +12,10 @@ function initStickyHeader(): void {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-function initMegaMenus(): void {
-  const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-mega-trigger]'));
-  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-mega-panel]'));
-  const chevrons = Array.from(document.querySelectorAll<HTMLElement>('[data-mega-chevron]'));
+function initDropdowns(): void {
+  const triggers = Array.from(document.querySelectorAll<HTMLButtonElement>('[data-menu-trigger]'));
+  const panels = Array.from(document.querySelectorAll<HTMLElement>('[data-menu-panel]'));
+  const chevrons = Array.from(document.querySelectorAll<HTMLElement>('[data-menu-chevron]'));
   if (triggers.length === 0 || panels.length === 0) return;
 
   let openVariant: string | null = null;
@@ -23,11 +23,11 @@ function initMegaMenus(): void {
 
   const setExpandedState = (variant: string | null): void => {
     triggers.forEach((t) => {
-      const matches = t.dataset.megaTrigger === variant;
+      const matches = t.dataset.menuTrigger === variant;
       t.setAttribute('aria-expanded', matches ? 'true' : 'false');
     });
     chevrons.forEach((c) => {
-      c.dataset.open = c.dataset.megaChevron === variant ? 'true' : 'false';
+      c.dataset.open = c.dataset.menuChevron === variant ? 'true' : 'false';
     });
   };
 
@@ -39,7 +39,7 @@ function initMegaMenus(): void {
     openVariant = variant;
     setExpandedState(variant);
     panels.forEach((p) => {
-      if (p.dataset.megaPanel === variant) {
+      if (p.dataset.menuPanel === variant) {
         p.hidden = false;
         requestAnimationFrame(() => {
           p.dataset.open = 'true';
@@ -74,7 +74,7 @@ function initMegaMenus(): void {
   };
 
   triggers.forEach((t) => {
-    const variant = t.dataset.megaTrigger as string;
+    const variant = t.dataset.menuTrigger as string;
     t.addEventListener('mouseenter', () => open(variant));
     t.addEventListener('focus', () => open(variant));
     t.addEventListener('click', () => (openVariant === variant ? closeAll() : open(variant)));
@@ -146,7 +146,7 @@ function initDrawer(): void {
 }
 
 initStickyHeader();
-initMegaMenus();
+initDropdowns();
 initDrawer();
 
 export {};

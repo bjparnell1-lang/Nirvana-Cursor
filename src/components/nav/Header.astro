@@ -1,6 +1,6 @@
 ---
 import { bookCta } from '../../data/nav';
-import MegaMenu from './MegaMenu.astro';
+import Dropdown from './Dropdown.astro';
 ---
 
 <header
@@ -21,44 +21,50 @@ import MegaMenu from './MegaMenu.astro';
     <nav class="hidden lg:flex items-center gap-xl" aria-label="Primary">
       <a href="/" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">Home</a>
       <a href="/about" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">About</a>
-      <button
-        type="button"
-        data-mega-trigger="programs"
-        aria-haspopup="true"
-        aria-expanded="false"
-        class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
-      >
-        Medical Programs
-        <svg
-          aria-hidden="true"
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
-          data-mega-chevron="programs"
+      <div class="relative">
+        <button
+          type="button"
+          data-menu-trigger="programs"
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
         >
-          <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
-      <button
-        type="button"
-        data-mega-trigger="services"
-        aria-haspopup="true"
-        aria-expanded="false"
-        class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
-      >
-        Services
-        <svg
-          aria-hidden="true"
-          width="10"
-          height="10"
-          viewBox="0 0 10 10"
-          class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
-          data-mega-chevron="services"
+          Medical Programs
+          <svg
+            aria-hidden="true"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
+            data-menu-chevron="programs"
+          >
+            <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <Dropdown variant="programs" />
+      </div>
+      <div class="relative">
+        <button
+          type="button"
+          data-menu-trigger="services"
+          aria-haspopup="true"
+          aria-expanded="false"
+          class="flex items-center gap-2xs text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep"
         >
-          <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
+          Services
+          <svg
+            aria-hidden="true"
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            class="transition-transform duration-240 ease-nirvana data-[open=true]:rotate-180"
+            data-menu-chevron="services"
+          >
+            <path d="M1 3 L5 7 L9 3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <Dropdown variant="services" />
+      </div>
       <a href="/foundation" class="text-[0.9375rem] tracking-tight hover:text-nirvana-sageDeep">Foundation</a>
     </nav>
 
@@ -82,10 +88,5 @@ import MegaMenu from './MegaMenu.astro';
         <span aria-hidden="true" class="relative block h-[2px] w-5 bg-nirvana-ink before:absolute before:left-0 before:-top-[6px] before:block before:h-[2px] before:w-5 before:bg-nirvana-ink before:content-[''] after:absolute after:left-0 after:top-[6px] after:block after:h-[2px] after:w-5 after:bg-nirvana-ink after:content-['']"></span>
       </button>
     </div>
-  </div>
-
-  <div class="relative hidden lg:block">
-    <MegaMenu variant="programs" />
-    <MegaMenu variant="services" />
   </div>
 </header>

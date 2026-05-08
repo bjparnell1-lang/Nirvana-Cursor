@@ -1,0 +1,56 @@
+---
+import { programs, services } from '../../data/nav';
+
+interface Props {
+  variant: 'programs' | 'services';
+}
+
+const { variant } = Astro.props;
+const items = variant === 'programs' ? programs : services;
+const hubHref = variant === 'programs' ? '/programs' : '/services';
+const hubLabel = variant === 'programs' ? 'View all programs' : 'View all services';
+const align = variant === 'services' ? 'right-0' : 'left-0';
+---
+
+<div
+  data-menu-panel={variant}
+  hidden
+  class={`absolute top-full z-50 origin-top w-[min(20rem,calc(100vw-2rem))] max-h-[min(28rem,calc(100vh-6rem))] overflow-y-auto rounded-lg border border-nirvana-celadon bg-nirvana-paper py-2xs shadow-elevated opacity-0 scale-[0.98] transition-[opacity,transform] duration-240 ease-nirvana-emphasis data-[open=true]:opacity-100 data-[open=true]:scale-100 ${align}`}
+  role="menu"
+  aria-label={variant === 'programs' ? 'Medical programs' : 'Services'}
+>
+  <ul class="divide-y divide-nirvana-celadon">
+    {
+      items.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            role="menuitem"
+            class="group flex items-start justify-between gap-md px-md py-sm transition-colors duration-240 ease-nirvana hover:bg-nirvana-mist"
+          >
+            <span class="min-w-0 flex-1">
+              <span class="block font-medium text-[0.9375rem] leading-snug tracking-tight text-nirvana-ink">
+                {item.name}
+              </span>
+              <span class="mt-2xs block text-[0.8125rem] leading-snug text-nirvana-ink/65">{item.lede}</span>
+            </span>
+            <span
+              aria-hidden="true"
+              class="shrink-0 pt-0.5 text-caption uppercase text-nirvana-goldAntique opacity-0 transition-opacity duration-240 ease-nirvana group-hover:opacity-100"
+            >
+              →
+            </span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <div class="border-t border-nirvana-celadon px-md py-sm">
+    <a
+      href={hubHref}
+      class="block text-right text-[0.9375rem] underline decoration-nirvana-goldAntique decoration-1 underline-offset-[6px] hover:decoration-2"
+    >
+      {hubLabel} →
+    </a>
+  </div>
+</div>
